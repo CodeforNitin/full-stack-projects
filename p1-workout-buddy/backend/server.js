@@ -6,8 +6,11 @@ const workoutRoutes = require('./routes/workout')
 //express app
 const app = express();
 
+/* middleware*/
+app.use(express.json())
+
 //routes
-app.use('/api/workoutes',workoutRoutes)
+app.use('/api/workouts',workoutRoutes)
 
 //listening on port
 app.listen(process.env.PORT, ()=>{
