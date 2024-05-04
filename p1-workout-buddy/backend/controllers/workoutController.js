@@ -33,22 +33,22 @@ const createWorkout = async (req,res) => {
 
     const { title, reps, weight } = req.body;
 
-    let exmptyFields = [];
+    let emptyFields = [];
 
     if(!title){
-        exmptyFields.push('title')
+        emptyFields.push('title')
     }
 
     if(!weight){
-        exmptyFields.push('weight')
+        emptyFields.push('weight')
     }
     
     if(!reps){
-        exmptyFields.push('reps')
+        emptyFields.push('reps')
     }
 
-    if(exmptyFields.length > 0){
-        return res.status(400).json({error: 'Please fill in all the fields', exmptyFields})
+    if(emptyFields.length > 0){
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields})
     }
     
     try {
