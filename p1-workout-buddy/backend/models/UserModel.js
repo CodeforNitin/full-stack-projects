@@ -22,6 +22,20 @@ const userSchema = new Schema ({
     }
 }, { timestamps: true })
 
+
+//fire funtion after event ocuur
+userSchema.post('save', function(doc, next){
+    console.log('new user is created and saved')
+    next();
+})
+
+//fire funtion before event ocuur
+userSchema.post('save', function(next){
+    console.log('new user is about to be created', this)
+    next();
+})
+
+
 const User = mongoose.model('User', userSchema)
 
 module.exports = User;
