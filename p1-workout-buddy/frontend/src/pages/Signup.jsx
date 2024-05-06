@@ -10,7 +10,7 @@ const Signup = () => {
         e.preventDefault();
         const newUser = {email, password}
 
-        const response = await fetch('/signup', {
+        const response = await fetch('http://localhost:4000/api/signup', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers : {
