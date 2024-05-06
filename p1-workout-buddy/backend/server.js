@@ -2,22 +2,33 @@ require('dotenv').config()
 
 const express = require ('express');
 const mongoose = require('mongoose');
-const workoutRoutes = require('./routes/workout')
-const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
+
+//accessing routes
+const workout = require('./routes/workout')
+const authRoutes = require('./routes/authRoutes')
 
 //express app
 const app = express();
 
-/* middleware*/
 app.use(express.json())
 app.use(cookieParser())
 
-//routes
-app.use('/api/workouts',workoutRoutes)
+// CORS middleware
+const allowCrossDomain = (req, res, next) => {
+    res.header(`Access-Control-Allow-Origin`, `*`);
+    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+    res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+    next();
+  };
 
-//authentication routes
-app.use(authRoutes)
+  app.use(allowCrossDomain);
+  
+
+//routes
+app.use('/api/workouts',workout)
+app.use('/api',authRoutes)
 
 //connect to database
 mongoose.connect(process.env.MONGO_URI)
