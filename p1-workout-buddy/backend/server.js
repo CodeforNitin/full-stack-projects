@@ -4,12 +4,14 @@ const express = require ('express');
 const mongoose = require('mongoose');
 const workoutRoutes = require('./routes/workout')
 const authRoutes = require('./routes/authRoutes')
+const cookieParser = require('cookie-parser')
 
 //express app
 const app = express();
 
 /* middleware*/
 app.use(express.json())
+app.use(cookieParser())
 
 //routes
 app.use('/api/workouts',workoutRoutes)
