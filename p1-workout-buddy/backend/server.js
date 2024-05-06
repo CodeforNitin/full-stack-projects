@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require ('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser')
-const cors = require('cors')
+// const cors = require('cors')
 
 //accessing routes
 const workout = require('./routes/workout')
@@ -23,7 +23,7 @@ const allowCrossDomain = (req, res, next) => {
     next();
   };
 
-  app.use(allowCrossDomain);
+  app.use((allowCrossDomain));
   
 
 //routes
