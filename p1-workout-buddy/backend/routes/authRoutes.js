@@ -21,6 +21,6 @@ router.get('/login', login_get)
 
 
 //to login new user
-router.get('/login', login_post)
+router.post('/login', login_post)
 
 module.exports = router;
