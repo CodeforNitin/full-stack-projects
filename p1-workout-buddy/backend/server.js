@@ -28,7 +28,7 @@ const allowCrossDomain = (req, res, next) => {
 
 //routes
 app.use('/api/workouts',workout)
-app.use('/api',authRoutes)
+app.use('/api/users',authRoutes)
 
 //connect to database
 mongoose.connect(process.env.MONGO_URI)
