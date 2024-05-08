@@ -1,5 +1,22 @@
+const express = require ('express');
 const jwt = require('jsonwebtoken')
 const User = require('../models/UserModel')
+
+const app = express();
+app.use(express.json())
+
+// CORS middleware -- this eas a lesseon
+/* If you are using a middle ware them please include the cors poicy over ther as well*/
+
+const allowCrossDomain = (req, res, next) => {
+    res.header(`Access-Control-Allow-Origin`, `*`);
+    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+    res.header(`Access-Control-Allow-Headers`, `Content-Type,Authorization`);
+    next();
+};
+
+app.use((allowCrossDomain));
+
 
 const requireAuth = async (req, res, next) => {
   // verify user is authenticated
