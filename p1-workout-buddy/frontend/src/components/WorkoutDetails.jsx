@@ -18,7 +18,7 @@ const WorkoutDetails = ({workout}) => {
 
         const repsonse = await fetch('http://localhost:4000/api/workouts/' + workout._id, {
             method : 'DELETE',
-            'Authorization' : `Bearer ${user.token}`
+            headers: {'Authorization': `Bearer ${user.token}`},
         })
 
         const json = await repsonse.json()
