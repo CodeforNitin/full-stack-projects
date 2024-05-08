@@ -10,7 +10,7 @@ const Signup = () => {
         e.preventDefault();
         const newUser = {email, password}
 
-        const response = await fetch('http://localhost:4000/api/signup', {
+        const response = await fetch('http://localhost:4000/api/users/signup', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers : {
@@ -32,8 +32,8 @@ const Signup = () => {
     }
 
     return(
-        <form className="create-signup" onSubmit={handleSubmit}>
-        <h2>Sign Up</h2>
+        <form className="signup" onSubmit={handleSubmit}>
+        <h3>Sign Up</h3>
 
         <label>Email</label>
         <input 
@@ -49,7 +49,7 @@ const Signup = () => {
         value={password}
         ></input>
 
-        <button>Sign Up</button>
+        <button>Sign up</button>
         {error && <div className="error">{error}</div>}
 
     </form>
