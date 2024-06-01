@@ -11,6 +11,9 @@ const Cart = () => {
 
   const [activeCart, setActiveCart] = useState(true)
   const cartItems = useSelector((state) => state.cart.cart)
+  const totalQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0)
+  const totalPrice = cartItems.reduce((total, item) => total+item.qty*item.price, 0)
+  const totalItems = cartItems.reduce((totalItems, item) => totalItems+item.qty, 0)
   return (
     <>
     <div className={`fixed right-0 top-0 w-full lg:w-[20vw] bg-white p-5 h-full  ${activeCart ? "translate-x-0" : "translate-x-full"} z-50 transition-all duration-500`}>
@@ -39,14 +42,16 @@ const Cart = () => {
         )}
 
         <div className='absolute bottom-0'>
-            <h3 className='font-semibold text-gray-800'>Items: </h3>
-            <h3 className='font-semibold text-gray-800'>Total Amount: </h3>
+            <h3 className='font-semibold text-gray-800'>Items:${totalItems} </h3>
+            <h3 className='font-semibold text-gray-800'>Total Amount: ${totalPrice}</h3>
             <hr className='w-[90vw] lg:[18vw] my-2'/> 
             <button className='bg-green-500 font-bold px-3 text-white py-2 rounded-md w-[90vw] lg:w-[18vw] mb-5'> Checkout</button>
         </div>
     </div>
 
-    <FaShoppingCart onClick = {() => setActiveCart(!activeCart)} className="rounded-full bg-white shadow-md text-4xl p-2 fixed bottom-4 right-4"/>
+    <FaShoppingCart onClick = {() => setActiveCart(!activeCart)} 
+    className={`rounded-full bg-white shadow-md text-4xl p-2 fixed bottom-4 right-4 ${totalQty >0 && "animate-bounce delay-500 transition-all"}`}/>
+    {/* className="rounded-full bg-white shadow-md text-4xl p-2 fixed bottom-4 right-4"/> */}
         
     </>
 

@@ -22,7 +22,7 @@ const ItemCard = ({id, name, price, img, qty}) => {
               className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all ease-linear cursor-pointer"
             />
             <span>{qty}</span>
-            <AiOutlinePlus onClick={()=> qty>1 ? dispatch(incrementQty({id})) : (qty=0)}
+            <AiOutlinePlus onClick={()=> qty>0 ? dispatch(incrementQty({id})) : (qty=0)}
               className="border-2 border-gray-600 text-gray-600 hover:text-white hover:bg-green-500 hover:border-none rounded-md p-1 text-xl transition-all ease-linear cursor-pointer"
             />
           </div>
