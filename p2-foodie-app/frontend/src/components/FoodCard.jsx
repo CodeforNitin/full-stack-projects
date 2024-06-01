@@ -19,7 +19,7 @@ const FoodCard = ({id, name, price, desc, rating, img}) => {
          <div className='flex justify-between'>
             <span className='flex justify-center items-center'><FaStar className='mr-1 text-yellow-400'/> {rating}</span>
             <button onClick={()=>{
-              dispatch(addToCart({id, name, price, rating, img, qty: 1 }))}} 
+              dispatch(addToCart({id, name, price, rating, img, qty:1 }))}} 
             className='p-1 text-white bg-green-500 hover:bg-green-600 rounded-lg text-sm'>Add to Cart</button>
          </div>
     </div>
