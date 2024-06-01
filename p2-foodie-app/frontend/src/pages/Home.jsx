@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Navbar } from "../components/Navbar";
 
 function Home() {
   return (
-    <h1 class="text-3xl font-bold underline text-cyan-300">
-    Hello world!
-  </h1>
-  )
+    <>
+      <Navbar />
+    </>
+  );
 }
 
-export default Home
+export default Home;
