@@ -23,15 +23,15 @@ app.use(cookieParser());
   //   next();
   // });
 
-app.use(cors(
-  {
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "credentials": true,
-    "optionsSuccessStatus": 204
-  }
-))
+  app.use(cors(
+    {
+      "origin": "*",
+      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+      "preflightContinue": false,
+      "credentials": true,
+      "optionsSuccessStatus": 204
+    }
+  ))
 
 //routes
 app.use("/api/workouts", workout);
