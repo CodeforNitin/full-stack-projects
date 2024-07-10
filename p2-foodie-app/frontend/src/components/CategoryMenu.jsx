@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../redux/slices/CategorySlice";
 
 export const CategoryMenu = () => {
+
   const [categories, setCategories] = useState([]);
 
   const listUniqueCategories = () => {
@@ -11,9 +12,8 @@ export const CategoryMenu = () => {
       ...new Set(FoodData.map((food) => food.category)),
     ];
     setCategories(uniqueCategories);
-    console.log(uniqueCategories);
   };
-
+  
   useEffect(() => {
     listUniqueCategories();
   }, []);
@@ -36,7 +36,9 @@ export const CategoryMenu = () => {
         {categories.map((category, index) => {
           return (
             <button
-              onClick={() => dispatch(setCategory(category))}
+              onClick={() => {
+                dispatch(setCategory(category))
+              }}
               key={index}
               className={`px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-500 hover:text-white ${
                 selectedCategory === category && "bg-green-500 text-white"

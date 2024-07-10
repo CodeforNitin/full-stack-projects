@@ -1,5 +1,7 @@
-import React from 'react'
-export const Navbar = () => {
+import React, { useState } from 'react'
+
+export const Navbar = ({searchFood}) => {
+
   return (
     <nav className="flex flex-col lg:flex-row justify-between py-3 mx-6 mb-5">
         <div>
@@ -12,7 +14,7 @@ export const Navbar = () => {
                 name="search"
                 id=""
                 placeholder='Search Food'
-                
+                onChange={searchFood}
             />
         </div>
     </nav>
