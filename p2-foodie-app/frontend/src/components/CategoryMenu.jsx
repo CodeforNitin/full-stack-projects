@@ -12,6 +12,7 @@ export const CategoryMenu = () => {
       ...new Set(FoodData.map((food) => food.category)),
     ];
     setCategories(uniqueCategories);
+    console.log(uniqueCategories)
   };
   
   useEffect(() => {

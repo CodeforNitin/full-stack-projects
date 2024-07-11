@@ -7,28 +7,11 @@ import Cart from "../components/Cart";
 import FoodData from './../data/FoodData';
 
 function Home() {
-
-  // Search Food logic
-  const [searchData, setSearchData] = useState(FoodData);
-
-  const searchFood = (e) => {
-    const searchValue = e.target.value;
-    if (searchValue === "") {
-      setSearchData(FoodData);
-    }
-    const filterValue = FoodData.filter((food) => food.name.toLowerCase().includes(searchValue.toLowerCase()));
-
-    setSearchData(filterValue);
-    if (filterValue.length < 1) {
-      setSearchData([]);
-    }
-  }
-
   return (
     <>
-      <Navbar searchData={searchData} searchFood={searchFood} />
+      <Navbar/>
       <CategoryMenu/>
-      <FoodItem searchData={searchData}/>
+      <FoodItem/>
       <Cart/>
     </>
   );

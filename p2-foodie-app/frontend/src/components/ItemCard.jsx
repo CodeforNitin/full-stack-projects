@@ -15,11 +15,11 @@ const ItemCard = ({id, name, price, img, qty}) => {
         icon:"👋",
         });
       }}
-        className="absolute right-7 text-gray-600 cursor-pointer"
+        className="absolute right-6  text-gray-600 cursor-pointer"
       />
-        <img src={img} alt="" className="w-[50px] h-[50px] " />
+        <img src={img} alt="" className="w-[50px] h-[50px] mt-3 " />
       <div className="leading-5">
-        <h2 className=" text-sm font-bold text-gray-800 mb-2">{name}</h2>
+        <h2 className=" text-sm font-bold mt-3 text-gray-800 mb-2">{name}</h2>
         <div className="flex justify-between ">
           <span className="text-green-500 font-bold">₹{price}</span>
           <div className="flex justify-center items-center gap-1 absolute right-7">
